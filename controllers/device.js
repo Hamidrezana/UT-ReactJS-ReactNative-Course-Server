@@ -2,6 +2,7 @@ const Sequelize = require('sequelize')
 const { Device } = require('../database')
 
 function add(req, res) {
+    console.log('req', req.body);
     Device.findOne({
         where: {
             deviceId: req.params.deviceId
@@ -19,12 +20,16 @@ function add(req, res) {
                         return res.status(200).json({success: true});
                     })
                     .catch(err => {
+                        console.log('err2', err)
                         return res.status(400).json({success: false});
                     })
             }
             return res.status(200).json({success: true});
         })
-        .catch(err => res.status(400).json({success: false}))
+        .catch(err => {
+            console.log('err3', err)
+            return res.status(400).json({success: false})
+        })
 }
 
 function getAll(req, res) {
