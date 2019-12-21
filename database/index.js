@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const UserModel = require('../models/user.model')
 const BlogModel = require('../models/blog.model')
-
+const DeviceModel = require('../models/device.model')
 // const sequelize = new Sequelize('reactCourseDB', 'hamidreza', '', {
 //     host: 'localhost',
 //     dialect: 'postgres',
@@ -11,6 +11,7 @@ const sequelize = new Sequelize('postgres://lkddxxrdsufbew:42f43d50ee962c0186151
 
 const User = UserModel(sequelize, Sequelize)
 const Blog = BlogModel(sequelize, Sequelize)
+const Device = DeviceModel(sequelize, Sequelize)
 Blog.belongsTo(User, {foreignKey: 'userId', as: 'user'});
 User.hasMany(Blog, {as: 'blogs'});
 sequelize.sync({ force: false })
@@ -20,5 +21,6 @@ sequelize.sync({ force: false })
 
 module.exports = {
     User,
-    Blog
+    Blog,
+    Device
 }

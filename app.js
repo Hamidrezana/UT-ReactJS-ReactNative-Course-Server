@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var blogRouter = require('./routes/blogs')
 var authRouter = require('./routes/auth')
+var deviceRouter = require('./routes/devices')
 var cors = require('cors')
 var passport = require('passport')
 const Errors = require('./utils/Errors')
@@ -35,5 +36,6 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter)
 app.use('/user', passportCallback, usersRouter);
 app.use('/blog', passportCallback, blogRouter);
+app.use('/device', deviceRouter);
 
 module.exports = app;
