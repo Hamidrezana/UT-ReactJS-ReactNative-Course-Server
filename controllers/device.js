@@ -5,7 +5,7 @@ function add(req, res) {
     console.log('req', req.body);
     Device.findOne({
         where: {
-            deviceId: req.params.deviceId
+            deviceId: req.body.deviceId
         }
     })
         .then(device => {
