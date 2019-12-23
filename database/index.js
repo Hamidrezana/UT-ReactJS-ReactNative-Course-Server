@@ -13,6 +13,7 @@ const User = UserModel(sequelize, Sequelize)
 const Blog = BlogModel(sequelize, Sequelize)
 const Device = DeviceModel(sequelize, Sequelize)
 Blog.belongsTo(User, {foreignKey: 'userId', as: 'user'});
+Device.belongsTo(User, {foreignKey: 'userId', as: 'user'})
 User.hasMany(Blog, {as: 'blogs'});
 sequelize.sync({ force: false })
     .then(() => {

@@ -2,7 +2,6 @@ const Sequelize = require('sequelize')
 const { Device } = require('../database')
 
 function add(req, res) {
-    console.log('req', req.body);
     Device.findOne({
         where: {
             deviceId: req.body.deviceId

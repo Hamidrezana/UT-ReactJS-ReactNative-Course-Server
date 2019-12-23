@@ -21,6 +21,9 @@ module.exports = (sequelize, type) => {
             systemVersion: {
                 type: type.STRING,
                 allowNull: false
+            },
+            userId: {
+                type: type.INTEGER
             }
         }
     )

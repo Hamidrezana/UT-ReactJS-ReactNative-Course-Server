@@ -47,8 +47,21 @@ function getBlog(req, res) {
         .catch(err => res.status(400).json({success: false, message: err}))
 }
 
+function removeBlog(req, res) {
+    Blog.destroy({
+        where: {
+            id: req.body.id
+        }
+    })
+        .then(blog => {
+            res.status(200).json({success: true, message: blog})
+        })
+        .catch(err => res.status(400).json({success: false, message: err}))
+}
+
 module.exports = {
     addBlog,
     allBlogs,
-    getBlog
+    getBlog,
+    removeBlog
 }
