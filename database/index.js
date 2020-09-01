@@ -6,7 +6,7 @@ const DeviceModel = require('../models/device.model')
 //     host: 'localhost',
 //     dialect: 'postgres',
 // })
-const sequelize = new Sequelize('postgres://lkddxxrdsufbew:42f43d50ee962c018615163581fb0f43e9dfd9af2de2cf45f2d76551211fe251@ec2-174-129-255-7.compute-1.amazonaws.com:5432/d7f0d1glfadm2j');
+const sequelize = new Sequelize(process.env.DB_URL);
 
 
 const User = UserModel(sequelize, Sequelize)
